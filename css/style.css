@@ -1,0 +1,54 @@
+body{
+    background-color: #102431;
+    /* background-image: url("images/background.jpg"); */
+ 
+}
+.title, form, p, a{
+    color: white;
+}
+.title{
+    text-align: center;
+    
+    padding: 50px;
+}
+
+form{
+    text-align: center;
+  
+}
+
+.button{
+    margin: 40px;
+    width: 90px;
+    padding: 5px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: transparent;
+    
+}
+
+p{
+    
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+/* footer {
+    position: absolute;
+    bottom: 0px;
+    color: white;
+    width: 100%;
+    text-align: center;
+    
+} */
+
+a{
+    text-decoration: none;
+}
+
+.signUpLink{
+    display: inline-block;
+    padding-left: 10px;
+}

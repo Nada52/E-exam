@@ -1,0 +1,18 @@
+:root{
+    --dark-color: #4c386c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    height: 10000px;
+}
+
+.navbar{
+    font-size: 18px;
+    background-color: var(--dark-color);
+    
+}
+
