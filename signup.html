@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin-signup</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+         <div class="container">
+               <div class="signin-signup">
+                     <form action="" class="sign-in-form">
+                        <h2 class="title">Sign in</h2>
+                        <div class="input-field">
+                           <i class="fas fa-user"></i>
+                           <input type="text" placeholder="Username" required>
+                        </div> 
+
+                        <div class="input-field">
+                           <i class="fas fa-lock"></i>
+                           <input type="password" placeholder="password" required>
+                        </div> 
+                        
+                        <input type="submit" value="Login" class="btn">
+                        <p class="account-text">Don't have an account? <a href="#" id="sign-up-btn2">Sign up</a></p>
+                     </form>
+
+                     <form action="" class="sign-up-form">
+                        <h2 class="title">Sign up</h2>
+                        <div class="input-field">
+                           <i class="fas fa-user"></i>
+                           <input type="text" placeholder="First Name" required>
+                        </div>
+                        <div class="input-field">
+                           <i class="fas fa-user"></i>
+                           <input type="text" placeholder="Last Name"required>
+                        </div> 
+
+                        <div class="input-field">
+                           <i class="fas fa-envelope"></i>
+                           <input type="text" placeholder="Email" required>
+                        </div> 
+         
+                        <div class="input-field">
+                           <i class="fas fa-lock"></i>
+                           <input type="password" placeholder="password" required>
+                        </div> 
+                        
+                        <input type="submit" value="Sign up" class="btn">
+                         
+                        <p class="account-text">Already have an account? <a href="#" id="sign-in-btn2">Sign in</a></p>
+                     </form>
+
+                  </div>
+
+               <div class="panels-container">
+                  <div class="panel left-panel">
+                           <div class="content">
+                             <h3>Already a user</h3>
+                             <button class="btn" id="sign-in-btn"> Sign in </button>
+                           </div>
+                        <img src="images/a.svg" alt="" class="image">
+                     </div>
+
+                     <div class="panel right-panel">
+                        <div class="content">
+                        <h3>New user</h3>
+                        <button class="btn" id="sign-up-btn"> Sign up as Professor </button>
+                        <button class="btn" id="sign-up-btn"> Sign up  as Student</button>
+                        </div>
+                         <img src="images/c.svg" alt="" class="image">
+                     </div>
+
+                   </div>
+         </div> 
+      
+         <script src="app.js">
+         function Validation(){
+            var form 
+         }
+         </script>
+
+
+
+
+ 
+
+
+
+   </body>
+</html>
