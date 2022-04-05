@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    
+}
+ body{
+     background-image: url(images/fci.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+     
+    background-size: contain;
+    
+ }
+ .container{
+     background: transparent;
+     margin: 280px 0px ;
+     text-align: center;
+     width: 100%;
+    
+ }
+
+ .container ul{
+     list-style: none;
+     
+     display: inline-flex;
+ }
+ .container ul li {
+     width: 150px;
+     margin:10px ;
+     /*padding:5px ;*/
+ }
+ .container ul li a{
+     text-decoration: none;
+     color: azure;
+     font-size: larger;
+ }
+ .active,.container ul li:hover{
+     background-color: aqua;
+     border-radius: 3px;
+ }
+ .lev-list{
+    display: none;
+}
+.container ul li:hover .lev-list{
+    display: block;
+    position: absolute;
+    margin-top: 15px;
+    margin-left: -15px;
+    background:  aquamarine;
+     
+}
+.container ul li:hover .lev-list ul{
+    display: block;
+    margin: 10px;
+}
+.container ul li:hover .lev-list ul li{
+    width: 150px;
+   /* padding: 10px;*/
+    border-bottom: 1px dotted #fff;
+    text-align: left;
+    background: transparent;
+    border-radius: 0px;
+}
+.container ul li:hover .lev-list ul li :last-child{
+    border-bottom: none;
+
+}
+
+.container ul li:hover .lev-list ul li a:hover{
+    color: blue;
+}
+.fa-angle-right{
+float: right;
+}
+.sub-Genrl{
+    display: none;
+}
+.hover-G:hover .sub-Genrl{
+    display: block;
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 140px;
+    background:  aquamarine;
+}
+
+ 
