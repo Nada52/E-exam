@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Tahoma,Arial;
+}
+.quiz-app{
+    padding: 15px;
+    margin: 20px auto;
+    background: #f8f8f8;
+    width: 800px;
+}
+.quiz-app .quiz-info{
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+}
+.quiz-app .quiz-info .category{
+    flex:1;
+}
+.quiz-app .quiz-info .count{
+    flex:1;
+    text-align: right;
+}
+.quiz-app .quiz-area{
+    padding: 20px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+.quiz-app .quiz-area h2{
+    margin: 0;
+}
+.quiz-app .answers-area{
+    padding: 0 20px 20px;
+    background-color: #fff; 
+}
+.quiz-app .answers-area .answer{
+    padding: 15px;
+    background-color: #f9f9f9ff; 
+}
+.quiz-app .answers-area .answer:not(:last-child){
+    border-bottom: 1px solid #dfdfdf;
+}
+.quiz-app .answers-area .answer input[type="Radio"]:checked+label{
+color: #0075ff;
+}
+.quiz-app .answers-area .answer label{
+    cursor: pointer;
+    font-weight: bold;
+    color:#777;
+    top: -1px;
+    position: relative;
+    margin-left: 5px;
+    font-size: 14px;
+}
+.quiz-app .submit-button{
+    background-color: #0075ff;
+    display: block;
+    width: 90%;
+    padding: 10px 15px;
+    border: none;
+    color:#fff;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin: 20px auto;
+}
+.quiz-app .submit-button:focus{
+    outline: none;
+}
+.quiz-app .bullets{
+    border-top: 1px solid #dfdfdf;
+    background-color: #fff;
+    display: flex;
+    padding: 10px;
+
+}
+.quiz-app .bullets .spans{
+display: flex;
+flex: 1;
+}
+.quiz-app .bullets .spans span{
+width:20px;
+height: 20px;
+border-radius: 50%;
+margin-right: 5px;
+background-color: #ddd;
+}
+.quiz-app .bullets .spans span.on{
+    background-color: #0075ff;
+}
+.quiz-app .results span{
+    font-weight: bold;
+}
+.quiz-app .results span.perfect{
+color: #0075ff ;
+}
+.quiz-app .results span.good{
+    color: #009688; ; 
+}
+.quiz-app .results span.bad{
+    color: #dc0a0a;  
+}
+
+.finish-button{
+    border: none;
+    padding: 20px;
+    color:aliceblue;
+    background-color: #0075ff;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 90px;
+    margin-left: 350px;
+    font-weight: bold;
+    
+}
+.finish-button:hover{
+    background-color: #009688;
+    
+}

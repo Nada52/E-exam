@@ -1,0 +1,104 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+ 
+    /* background-image: url("images/background.jpg"); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background:lightsalmon;
+ 
+}
+.container{
+     padding: 80px;
+    position: relative;
+    height: 96vh;
+    width: 60vw;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px 0  rgba( 0, 0, 0, 0.3) , 0px 6px 20px 0 rgba( 0, 0, 0, 0.3);
+   
+}
+ 
+
+.text_info{
+     display: inline-flex;
+}
+ p.text_info{
+    float: right;
+    margin: 60px;
+    
+}
+ 
+ 
+ 
+#goAddQuestions{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background: #df4adf;
+    font-weight: 600;
+    margin-right: 60px;
+    float: right;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+#goAddQuestions:hover{
+    background: burlywood;
+    color:#df4adf;
+}
+#addMcq{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    background: #df4adf;
+    font-weight: 600;
+    margin-left: 40px;
+    float: left;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+#addMcq:hover{
+    background: burlywood;
+    color:#df4adf;
+}
+table{
+    width: 600px;
+    height: 400px;
+    margin: 15px;
+    border: #df4adf;
+    box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 08);
+    margin-bottom: 30px;
+}
+
+table td {
+    text-align: center;
+}
+ table label{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-weight: bold;
+     font-size: 25px;
+     color:darkmagenta;
+    
+ }
+ table input{
+     
+     width: 230px;
+     height: 90px;
+      outline: none;
+     border-style: none;
+     border: none;
+     text-align: center;
+     font-weight: bold;
+     font-size: 20px;
+     color: #df4adf;
+ }

@@ -15,14 +15,6 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="grid.css">
-  <style>
-      footer {
-            position: relative;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-  </style>
 </head>
 
 <body>
@@ -41,10 +33,10 @@
             <a class="nav-link p-lg-3" href="#">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link p-lg-3" id="getSubjects" onclick="getCourses()">Subjects</a>
+            <a class="nav-link p-lg-3" id="getSubjects" onclick="directToSubjectsPage()">Subjects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link p-lg-3" href="grades.html">My Grades</a>
+            <a class="nav-link p-lg-3" href="gradesForProfessor.html">Student Grades</a>
           </li>
           <li class="nav-item">
             <a class="nav-link p-lg-3" href="#aboutUs">About Us</a>
@@ -65,9 +57,10 @@
   <img src="images/2.jpg" alt="" class="responsive" height="360px">
   <div style="display: inline-block;">
     <ul class="Cursor">
-      <h3 >Welcome to FCI exam platform, You can easily : </h3>
-      <li class="Cursor">GET YOUR ONLINE EXAM </li>
-      <li class="Cursor">TRACK YOUR PROGRESS OF EACH SUBJECT </li>
+      <h3 >Hello professor , You can easily : </h3>
+      <li class="Cursor">SET YOUR ONLINE EXAM </li>
+      <li class="Cursor">TRACK THE PROGRESS OF YOUR STUDENTS </li>
+      
      
       </ul>
   </div>
@@ -180,11 +173,11 @@
       event.preventDefault();
     }); 
 
-    function directToSubjectsPageForStudent(){
-        document.location.href = "showStudentSubjects.html";
+    function directToSubjectsPage(){
+        document.location.href = "professorSubjects.html";
     }
   </script>
-  <script src="subject.js"></script>
+  
 </body>
 
 </html>

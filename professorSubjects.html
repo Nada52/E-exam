@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        @media only screen and (max-width:800px) {
+            #no-more-tables tbody,
+            #no-more-tables tr,
+            #no-more-tables td{
+                display: block;
+            }
+
+            #no-more-tables thead tr{
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            #no-more-tables td{
+                position: relative;
+                padding-left: 50%;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            #no-more-tables td:before{
+                content: attr(data-title);
+                position: absolute;
+                left: 6px;
+                font-weight: bold;
+            }
+
+            #no-more-tables tr{
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+     <section class="bg-light p-5">
+        <h3 class="pb-2">Professor Subjects</h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white" id="professorSubjectsTable">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                    
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-dark" href="#">exams.com</a>
+          <p>FCI exams is a platform enables students to have their online exams and keep track of their grades and progress</p>
+        
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- end of footer -->
+    <script src="professorSubjects.js"></script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        @media only screen and (max-width:800px) {
+            #no-more-tables tbody,
+            #no-more-tables tr,
+            #no-more-tables td{
+                display: block;
+            }
+
+            #no-more-tables thead tr{
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            #no-more-tables td{
+                position: relative;
+                padding-left: 50%;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            #no-more-tables td:before{
+                content: attr(data-title);
+                position: absolute;
+                left: 6px;
+                font-weight: bold;
+            }
+
+            #no-more-tables tr{
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <section class="bg-light p-5">
+        <h3 class="pb-2">Student Grades</h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white" id="gradesTable">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Exam</th>
+                        <th>Student</th>
+                        <th>Grade</th>
+                        <th>Full mark</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-dark" href="#">exams.com</a>
+          <p>FCI exams is a platform enables students to have their online exams and keep track of their grades and progress</p>
+        
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- end of footer -->
+      <script>
+         document.addEventListener("DOMContentLoaded",function getGrades(){
+            var token = localStorage.getItem('token');
+            let exam_idd = sessionStorage.getItem('exam_id');
+            fetch(`https://app-e-exam.herokuapp.com/studentGrads/${exam_idd}`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'Authorization': 'Bearer ' + token,
+            }
+            })
+            .then(function (response) {
+            if (response.ok) {
+                console.log(response.status);
+                return response.json();
+            }
+            console.log(response.status);
+            return Promise.reject(response);
+            })
+            .then(function (data) {
+            console.log(data);
+            let gradesTable = document.getElementById("gradesTable");
+            let grades = data['data'];
+            for(let i = 0; i<grades.length;i++){
+                let tr = document.createElement('tr');
+                let td1 = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                let td4 = document.createElement('td');
+                let td5 = document.createElement('td');
+                td2.innerHTML = grades[i]['exam']['examName'];
+                td1.innerHTML = grades[i]['exam']['subjectName'];
+                td3.innerHTML = grades[i]['student']['email'];
+                td4.innerHTML = grades[i]['yourScore'];
+                td5.innerHTML =  grades[i]['exam']['finalScore'];
+
+           
+               
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+                tr.appendChild(td5);
+                gradesTable.appendChild(tr);
+
+                
+            }
+      
+            })
+            .catch(function (error) {
+            console.warn("Something went wrong.", error);
+            });
+        })
+      </script>
+</body>
+</html>

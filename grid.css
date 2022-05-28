@@ -1,0 +1,103 @@
+/*
+  Grid
+  Parent
+  - display: grid | inline-grid
+  - grid-template-columns: [Number Of Columns In] => [Px, %, Auto, Repeat]
+*/
+
+*{
+  box-sizing: border-box;
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+.Cursor:hover{
+  cursor: default;
+}
+.parent {
+  margin: 20px auto;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  display: none;
+  grid-template-columns: repeat(4,25%);
+  /* grid-template-rows: repeat(4,25%) ; */
+  
+  gap: 25px 25px;
+}
+.parent div {
+  background-color:#df4adf;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.parent div:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+  color:#df4adf;
+  
+}
+.subjectLink{
+  color: white;
+  text-decoration: none;
+}
+
+.subjectLink:hover{
+  color:#df4adf;
+  
+}
+
+.styleAboutUsSections{
+  background-color: #444;
+  padding:20px;
+  margin: 20px;
+  color: white;
+  border-radius: 20px;
+}
+
+.subject {
+  background-color:#df4adf;
+  color: white;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.subject:hover{
+  background-color: rgba(0, 0, 0, 0.2);
+  color:#df4adf;
+}
+
+.subject a{
+  color: white;
+  text-decoration: none;
+}
+.subject a:hover{
+  color:#df4adf;
+}
+
+.bigContainer{
+  margin: 20px auto;
+  width: 800px;
+  height: 500px;
+  background-color: white;
+  display: none;
+  grid-template-columns: repeat(4,25%);
+  grid-template-rows: repeat(4,25%) ;
+  
+  gap: 25px 25px;
+}
+
+.bigContainer div{
+  background-color:#df4adf;
+  color: white;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}

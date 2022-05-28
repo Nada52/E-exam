@@ -4,8 +4,7 @@ var fristNameInput = document.getElementById("firstName");
 var lastNameInput = document.getElementById("lastName");
 var emailInput = document.getElementById("email");
 var passwordInput = document.getElementById("password");
-var level=document.getElementById("level");
-var department = document.getElementById("department");
+
 
 function addItemsToLocalStorage(){
   fristNameInput = fristNameInput.value;
@@ -16,19 +15,14 @@ function addItemsToLocalStorage(){
   localStorage.setItem("email",emailInput);
   passwordInput = passwordInput.value;
   localStorage.setItem("password",passwordInput);
-  level = level.value;
-  localStorage.setItem("level",level);
-  department = department.value;
-  localStorage.setItem("department",department);
-  role = "student";
+  role = "professor";
   localStorage.setItem("role",role);
 
 }
 
-function professorMode(){
-    window.location.href = "professorSignUp.html";
+function studentMode(){
+    window.location.href = "studentSignUp.html";
 }
-
 
 addbtn.onclick = function add() {
   fetch("https://app-e-exam.herokuapp.com/sign_Up", {
@@ -38,10 +32,8 @@ addbtn.onclick = function add() {
       fristName: fristNameInput.value,
       lastName: lastNameInput.value,
       email: emailInput.value,
-      level: level.value,
-      department: department.value,
       password: passwordInput.value,
-      role: "student",
+      role: "professor",
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",

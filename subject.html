@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        .actionButton{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>Subject Name</div> -->
+    <section class="bg-light p-5">
+        <h3 class="pb-2" id="subjectTitle"></h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Exam</th>
+                        <th>Estimated Time</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="examsTable">
+                 
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script>
+        function takeExam(){
+
+            location.href = 'ques.html';
+        }
+    
+        document.getElementById('subjectTitle').innerHTML = sessionStorage.getItem('subjectName');
+    </script>
+    <script>
+        var subjectId = sessionStorage.getItem('id') ;
+        document.addEventListener("DOMContentLoaded",function getExams(){
+            console.log(sessionStorage.getItem('subjectName'));
+            console.log(sessionStorage.getItem('id'));
+
+            fetch(`https://app-e-exam.herokuapp.com/getSpacificExam/${subjectId}`, {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'Authorization': 'Bearer ' + token,
+            }
+            })
+            .then(function (response) {
+            if (response.ok) {
+                console.log(response.status);
+                return response.json();
+            }
+            console.log(response.status);
+            return Promise.reject(response);
+            })
+            .then(function (data) {
+            exams = data['data'];
+            let allExams = data;
+            let table = document.getElementById('examsTable');
+            let idExams =[];
+            let links = [];
+            for (let i = 0; i<exams.length;i++){
+                let tr = document.createElement('tr');
+                let td1 = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                td1.innerHTML = exams[i]['examName'];
+                td2.innerHTML = exams[i]['timer'];
+                let examId = exams[i]['_id'];
+                let actionButton = document.createElement('a');
+                links.push(actionButton);
+                actionButton.innerHTML = 'start exam';
+                actionButton.className = "actionButton";
+                actionButton.id = "goToExamPage";
+                actionButton.onclick = function (){
+                    sessionStorage.setItem('exam_id',idExams[i]);
+                    actionButton.href='ques.html';
+                }
+                //actionButton.onclick = takeExam();
+                idExams.push(examId);
+                td3.appendChild(actionButton);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                table.appendChild(tr);
+            }
+            for(let i = 0;i<links.length;i++){
+              if(links[i].onclick == true){
+                  let eId;
+                  for(let j = 0;j<idExams;j++){
+                      eId = idExams[j];
+                  }
+              }
+
+            }
+            // function setExamId(){
+            //     let eId;
+            //     for(let i=0;i<idExams.length;i++){
+            //         eId = idExams[i];
+            //         console.log(eId);
+            //     }
+            // }
+            
+            console.log(exams);
+            console.log(allExams);
+            console.log(data)
+            console.log(idExams);
+            console.log(links);
+            })
+            .catch(function (error) {
+            console.warn("Something went wrong.", error);
+            });
+        
+        })
+
+      
+    </script>
+    <script src="subject.js"></script>
+</body>
+</html>

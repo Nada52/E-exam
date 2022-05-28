@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>signin-signup</title>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="style1.css">
+   </head>
+   <body>
+         <div class="container">
+                  <div class="signin-signup">
+                        <form action="" class="sign-in-form" onsubmit="return false">
+                           <h2 class="title">Sign in</h2>
+                           <div class="input-field">
+                              <i class="fas fa-envelope"></i>
+                              <input type="email" placeholder="email" id="signInProfessorEmail" required>
+                           </div> 
+
+                           <div class="input-field">
+                              <i class="fas fa-lock"></i>
+                              <input type="password" placeholder="password" id="signInProfessorPassword" required>
+                           </div> 
+                           
+                           <input  type="submit" value="Login" class="btn" id="signInProfessor"> 
+                           
+                           <p class="account-text">Don't have an account? <br><a href="studentSignUp.html" id="sign-up-btn2">Sign up as student </a>&nbsp;&nbsp;&nbsp;<a href="professorSignUp.html" id="sign-up-btn2">Sign up as professor</a></p>
+                        </form>
+                        
+                  </div> 
+                 
+         </div> 
+          
+
+         <script src="professorSignIn.js"></script>
+   </body>
+</html>

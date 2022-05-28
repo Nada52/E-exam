@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input placeholder="level name" id="levelname"><br>
+    <button id="alevel">ADD LEVEL</button>
+
+    <script>
+        let alevel = document.getElementById('alevel');
+        let levelname = document.getElementById('levelname');
+        alevel.onclick = function(){
+            fetch("https://app-e-exam.herokuapp.com/addLevels", {
+            method: "POST",
+            mode: "cors",
+            body: JSON.stringify({
+            levelId:levelname.value,
+            }),
+            headers: {
+            "Content-type": "application/json; charset=UTF-8",
+            'Authorization': 'Bearer ' + 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjhkMTNhMzBiMTY1Yzc3OWM0MDVmNDQiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2NTM0NTIwOTd9.5GiMEpgnHisoy3QooHuZLsR6b2MF9pKyIjR08CJHZ14',
+            },
+        }).then(res =>{
+        
+            return res.json();
+
+        }).then(data => {
+          console.log(data);
+        }).catch(err => {
+            console.log(err);
+        }) 
+        }
+    </script>
+</body>
+</html>

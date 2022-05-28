@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        @media only screen and (max-width:800px) {
+            #no-more-tables tbody,
+            #no-more-tables tr,
+            #no-more-tables td{
+                display: block;
+            }
+
+            #no-more-tables thead tr{
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            #no-more-tables td{
+                position: relative;
+                padding-left: 50%;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            #no-more-tables td:before{
+                content: attr(data-title);
+                position: absolute;
+                left: 6px;
+                font-weight: bold;
+            }
+
+            #no-more-tables tr{
+                border-bottom: 1px solid #ccc;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- <div>Subject Name</div> -->
+    <section class="bg-light p-5">
+        <h3 class="pb-2">My Grades</h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white" id="gradesTable">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <!-- <th>Subject</th> -->
+                        <th>Subject</th>
+                        <th>Exam</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                    
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script>
+     
+        document.addEventListener("DOMContentLoaded",function getGrades(){
+            var token = localStorage.getItem('token');
+            // let examId = sessionStorage.getItem('examId'); 
+            // let examId = "6289819554e62f2d9cc75d4d";
+            fetch("https://app-e-exam.herokuapp.com/allMyGrads", {
+            method: "GET",
+            mode: "cors",
+            headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'Authorization': 'Bearer ' + token,
+            }
+            })
+            .then(function (response) {
+            if (response.ok) {
+                console.log(response.status);
+                return response.json();
+            }
+            console.log(response.status);
+            return Promise.reject(response);
+            })
+            .then(function (data) {
+            console.log(data);
+            let gradesTable = document.getElementById("gradesTable");
+            let grades = data['data'];
+            // let examDetails = data['data'];
+            // let examObject = grades['exam'];
+            
+            for(let i = 0; i<grades.length;i++){
+                let tr = document.createElement('tr');
+                let td1 = document.createElement('td');
+                let td2 = document.createElement('td');
+                let td3 = document.createElement('td');
+                td2.innerHTML =  grades[i]['exam']['examName'];
+                td1.innerHTML = grades[i]['exam']['subjectName'];
+                td3.innerHTML = grades[i]['yourScore'];
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                gradesTable.appendChild(tr);
+            }
+
+            console.log(grades);
+      
+            })
+            .catch(function (error) {
+            console.warn("Something went wrong.", error);
+            });
+        })
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create_Exam</title>
+    <link rel="stylesheet" href="homeofprof.css">
+</head>
+<body>
+    <div class="container">
+        <div class="create_info">
+            <div class="subject_info">
+                <table border="1">
+                    <tr>
+                        <td colspan="3">
+                   <label>Subject Id</label>
+                   </td>
+                    <!-- <select name="Subject Name" required>
+                        <option>Operation System</option>
+                        <option>Open Source</option>
+                        <option>Operation System</option>
+                        <option>Operation System</option>
+                    </select> -->
+                    <td colspan="4">
+                    <input type="text" required id="subjectForExam" readonly>
+                     </td>
+                     </tr>
+            </div>
+        
+            <div>
+                <tr>
+                    <td colspan="3">
+                <label>Exam Name</label>
+                </td>
+                <td colspan="4">
+            
+                <input type="text" required id="examName">
+                </td>
+                </tr>
+            </div>
+            <div class="numofques">
+                <tr>
+
+                 <td colspan="3">
+                     
+                <label>Total degree</label>
+                </td>
+                <td colspan="4">
+                <input type="text" required id="finalScore">
+                </td>
+                </tr>
+            </div>
+            
+            <div class="time_exam">
+                <tr>
+                    <td colspan="3">
+                <label> Time of Exam in minutes </label>
+                </td>
+                <td colspan="4">
+                <input type="text" required id="timerOfExam">
+                </td>
+                </tr>
+            </div>
+        </table>
+        <div>
+            <button id="addMcq">Add</button>
+            <button id="goAddQuestions"> go add questions </button>
+        </div>
+        </div>
+            
+    </div>
+    <script>
+        let examName = document.getElementById("examName"); 
+        let subjectForExam = document.getElementById("subjectForExam"); 
+        subjectForExam.value = sessionStorage.getItem('subject_id');
+        let finalScore = document.getElementById("finalScore"); 
+        let timerOfExam = document.getElementById("timerOfExam"); 
+        let addMcq = document.getElementById("addMcq");
+        let token = localStorage.getItem('token');
+        let goAddQuestions = document.getElementById('goAddQuestions');
+        addMcq.onclick = function Create_Exam() {
+            fetch("https://app-e-exam.herokuapp.com/createNewExam", {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({
+                    examName: examName.value,
+                    subject: subjectForExam.value,
+                    timer:timerOfExam.value,
+                    finalScore:finalScore.value
+                }),
+                headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'Authorization': 'Bearer ' + token,
+                },
+                }).then(res =>{
+            
+                return res.json();
+
+                }).then(data => {
+                console.log(data);
+                localStorage.setItem('examId', data['newexam']['_id']);
+                }).catch(err => {
+                console.log(err);
+            })
+
+        }
+        // document.location.href = "addExam.html";
+        // function createQuestions(){
+        //     Create_Exam();
+        //     document.location.href = "index.html";
+        // }
+        goAddQuestions.onclick = function goAdd_question(){
+            location.href = "addExam.html";
+        }
+    </script>
+</body>
+</html>

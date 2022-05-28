@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin-signup</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="signup.css">
+   </head>
+   <body>
+         <div class="container">
+               <div id="signInForm" class="signin-signup"> 
+                     <form id="signUpForm" onsubmit="return false" action="" method="" class="sign-up-form">
+                        <h2 class="title">Sign up</h2>
+                        <div class="input-field">
+                           <i class="fas fa-user"></i>
+                           <input type="text" placeholder="First Name" id="firstName" required>
+                        </div>
+                        <div class="input-field">
+                           <i class="fas fa-user"></i>
+                           <input type="text" placeholder="Last Name" id="lastName" required>
+                        </div> 
+
+                        <div class="input-field">
+                           <i class="fas fa-envelope"></i>
+                           <input type="text" placeholder="Email" id="email" required>
+                        </div> 
+         
+                        <div class="input-field">
+                           <i class="fas fa-lock"></i>
+                           <input type="password" placeholder="password" id="password" required>
+                        </div> 
+                        <div id="main">
+                        <div id="left">
+                           <select id="department">
+                              <option value="627e89dfb43d50276042d98c" id="general">General</option>
+                              <option value="627e8a0cb43d50276042d991" id="bio">Bio</option>
+                          </select>
+ 
+                        </div> 
+                        <div id="center">
+                           <select id="level">
+                              <option value="627e897fb43d50276042d97f" id="levelOne">Level One</option>
+                              <option value="627e8989b43d50276042d982" id="levelTwo">Level Two</option>
+                              <option value="627e89a6b43d50276042d985" id="levelThree">Level Three</option>
+                              <option value="627e89b0b43d50276042d989" id="levelFour">Level Four</option>
+                          </select>
+
+                        </div>
+                         
+                        
+                      
+                     </div>
+                        <input type="submit" value="Sign up" class="btn" id="createUser">
+                         
+                        <div class="content">
+                            
+                           <button class="btn" id="sign-up-btn" id="professor" onclick="professorMode()"> Sign up as  professor </button>
+
+                        </div>
+                        <p class="account-text">Already have an account? <a href="studentSignIn.html" id="sign-in-btn2">Sign in</a></p>
+                     </form>
+   
+
+
+
+               <!-- end of container-->
+                  </div> 
+
+         </div> 
+         <!-- prevent default action of the form -->
+         <script>
+            document.getElementById("signUpForm").addEventListener("submit",function(e){
+            //   alert("you sign up successfully !")
+            })
+         </script>
+         <script>
+          
+            document.getElementById("signInForm").addEventListener("submit",function(e){
+               // if(users.includes(emailInput) && users.includes(passwordInput)){
+               //    alert("you sign in successfully !");
+               // }else{
+               //    alert("Login Failed");
+               // }
+                  // usersEmails = [];
+                  // usersEmails.push(emailInput.value);
+                  // console.log(usersEmails);
+
+               // alert("you sign in successfully !");
+            //   window.location.replace("homeStudent.html");
+            })
+         </script>
+         </script> 
+         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+         <script src="studentSignUp.js"></script>
+         <!-- <script src="studentSignIn.js"></script> -->
+
+
+ 
+
+
+
+   </body>
+</html>

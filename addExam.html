@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="addExam.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="questionsContainer">
+        <div class="question">
+            <label>Question  </label>
+            <input type="text" required class="setHeightAndWidth" id="questionTitle">
+        </div>
+       
+        <div class="question">
+            <label>Answer 1</label>
+            <input type="text" required class="setHeightAndWidth" id="ans1">
+        </div>
+
+        <div class="question">
+            <label>Answer 2</label>
+            <input type="text" required class="setHeightAndWidth" id="ans2">
+        </div>
+       
+        <div class="question">
+            <label>Answer 3</label>
+            <input type="text" required class="setHeightAndWidth" id="ans3">
+        </div>
+        
+        <div class="question">
+            <label>Answer 4</label>
+            <input type="text" required class="setHeightAndWidth" id="ans4">
+        </div>
+       
+        <div class="question">
+            <label>Right Answer</label>
+            <input type="text" required class="setHeightAndWidth" id="correctAns">
+        </div>
+       <div>
+        <button id="add_question"> Add </button>
+        <button id="clearFields"> clear fields</button>
+       </div>
+    </div>
+
+
+
+
+    <script>
+        var token = localStorage.getItem('token');
+        let questionTitle = document.getElementById("questionTitle");
+        let answer1 = document.getElementById("ans1");
+        let answer2 = document.getElementById("ans2");
+        let answer3 = document.getElementById("ans3");
+        let answer4 = document.getElementById("ans4");
+        let correctAnswer = document.getElementById("correctAns");
+    
+    
+        let clearFields = document.getElementById('clearFields');
+        addQuestion.onclick = function addMcq(){
+            fetch("https://app-e-exam.herokuapp.com/addMcqQuestion", {
+                method: "POST",
+                mode: "cors",
+                body: JSON.stringify({
+                    question: questionTitle.value,
+                    answer1: answer1.value,
+                    answer2: answer2.value,
+                    answer3: answer3.value,
+                    answer4: answer4.value,
+                    correctAnswer: correctAnswer.value,
+                    exam: localStorage.getItem('examId')
+                }),
+                headers: {
+                "Content-type": "application/json; charset=UTF-8",
+                'Authorization': 'Bearer ' + token,
+                },
+               
+            })
+            .then(function (response) {
+                if (response.ok) {
+                console.log(response.status);
+                return response.json();
+                }
+                console.log(response.status);
+                return Promise.reject(response);
+            })
+            .then(function (data) {
+                console.log(data);
+            })
+            .catch(function (error) {
+                console.warn("Something went wrong.", error);
+            })
+
+        }
+
+        clearFields.onclick = function clearFields(){
+            questionTitle.value = " ";
+            answer1.value = " ";
+            answer2.value = " ";
+            answer3.value = " ";
+            answer4.value = " ";
+            correctAnswer.value = " ";
+        }
+    </script>
+</body>
+</html>

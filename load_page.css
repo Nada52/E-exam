@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background-color: azure;
+    overflow-x: hidden;
+}
+nav{
+     
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #df4fdd;
+    color: antiquewhite;
+   
+box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 08);
+display: flex;
+
+}
+.logo{
+    text-transform: uppercase;
+    
+    letter-spacing: 5px;
+    font-size: 20px;
+}
+.nav-links{
+    display: flex;
+    justify-content: space-around;
+    width: 70%;
+}
+.nav-links li{
+    list-style: none;
+}
+.nav-links a{
+text-decoration: none;
+list-style: none;
+letter-spacing: 3px;
+font-weight: bold;
+}
+.logout{
+    list-style: none;
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+.container{
+    margin: 0px;
+    position: relative;
+    width: 100%;
+}
+.navigation{
+    position: fixed;
+    width: 300px;
+    background-color: #df4fdd;
+    height: 100%;
+    transition: 0.5s;
+    overflow: hidden;
+    box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 08);
+}
+ .navigation ul{
+     position: absolute;
+     top: 0;
+     left:0;
+     width:100%;
+ }
+ .navigation ul li{
+     position: relative;
+     width: 100%;
+ }
+ .navigation ul li:hover{
+     background-color: blueviolet;
+    
+     
+     
+ }
+  .navigation ul li:nth-child(1):hover{
+      background-color: transparent;
+       
+  }
+  .navigation ul li a{
+      position: relative;
+      display: block;
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+      color: blueviolet;
+      font-weight: bold;
+  }
+  .navigation ul li a:hover{
+      color: aliceblue;
+  }
+  .navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 30px;
+    height: 60px;
+    line-height: 60px;
+  }
+  
+   
+.dash{
+margin-top: 10px;
+width: 100vw;
+padding: 100px;
+margin-left: 350px;
+display: inline-flexbox;
+display: flex;
+
+
+ }
+  
+ div p{
+      
+     justify-content: space-around;
+     border: 7px solid #ffff;
+     height: 300px;
+     width: 15vw;
+     text-align: center;
+      padding-top: 140px;
+      background-color: hotpink;
+      color: aliceblue;
+      font-weight: bold;
+      box-shadow: 0 4px 8px 0 rgba( 0, 0, 0, 1);
+      font-size: 20px;
+      font-style: oblique;
+
+      
+ }
+   .dash a{
+      text-decoration: none;
+  }

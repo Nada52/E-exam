@@ -1,0 +1,75 @@
+ 
+
+.questionsContainer{
+  background-color:hotpink;
+  box-shadow: 0 4px 20px 0  rgba( 0, 0, 0, 0.3) , 0px 6px 20px 0 rgba( 0, 0, 0, 0.3);
+  padding: 5%;
+  margin: 9%;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid #000;
+  border-radius: 25px;
+  text-align: center;
+  justify-content: center;
+  width: 50%;
+  border: none;
+}
+
+.question{
+    margin: 2%;
+    padding: 2px;
+    color: white;
+    font-weight: bold;
+    font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#correctAns{
+  width: 370px;
+}
+
+.setHeightAndWidth{
+    width:400px;
+    height: 20px;
+}
+input{
+  outline: none;
+  border: none;
+  border-radius: 5px;
+}
+#add_question{
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background: fuchsia;
+  font-weight: 600;
+  margin-left: 70px;
+   
+  text-transform: uppercase;
+  cursor: pointer;
+  float: left;
+}
+#add_question:hover{
+  background: burlywood;
+    color:#df4adf;
+}
+#clearFields{
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 50px;
+  color: #fff;
+  background: fuchsia;
+  font-weight: 600;
+  margin-right: 60px;
+  float: right;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#clearFields:hover{
+  background: burlywood;
+    color:#df4adf;
+}

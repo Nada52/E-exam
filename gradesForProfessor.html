@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <style>
+        @media only screen and (max-width:800px) {
+            #no-more-tables tbody,
+            #no-more-tables tr,
+            #no-more-tables td{
+                display: block;
+            }
+
+            #no-more-tables thead tr{
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            #no-more-tables td{
+                position: relative;
+                padding-left: 50%;
+                border: none;
+                border-bottom: 1px solid #eee;
+            }
+
+            #no-more-tables td:before{
+                content: attr(data-title);
+                position: absolute;
+                left: 6px;
+                font-weight: bold;
+            }
+
+            #no-more-tables tr{
+                border-bottom: 1px solid #ccc;
+            }
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+  
+    <section class="bg-light p-5">
+        <h3 class="pb-2">Student Grades</h3>
+        <div class="table-responsive" id="no-more-tables">
+            <table class="table bg-white" id="examsTable">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>Subject</th>
+                        <th>Exam</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-dark" href="#">exams.com</a>
+          <p>FCI exams is a platform enables students to have their online exams and keep track of their grades and progress</p>
+        
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <!-- end of footer -->
+    <script>
+       
+        
+
+        document.addEventListener("DOMContentLoaded",function getExams(){
+            var token = localStorage.getItem('token');
+            var subject_id = sessionStorage.getItem('subject_id');
+            fetch(`https://app-e-exam.herokuapp.com/getSpacificExam/${subject_id}`, {
+               method: "GET",
+               mode: "cors",
+               headers: {
+                   "Content-type": "application/json; charset=UTF-8",
+                   'Authorization': 'Bearer ' + token,
+               }
+               })
+               .then(function (response) {
+               if (response.ok) {
+                   console.log(response.status);
+                   return response.json();
+               }
+               console.log(response.status);
+               return Promise.reject(response);
+               })
+               .then(function (data) {
+                    console.log(data);
+                    let gradesTable = document.getElementById("examsTable");
+                    let exams = data['data'];
+                    let links2 = [];
+                    let examsIds2 = [];
+                    for(let i = 0; i<exams.length;i++){
+                        let tr = document.createElement('tr');
+                        let td1 = document.createElement('td');
+                        let td2 = document.createElement('td');
+                        let td3 = document.createElement('td')
+                        let showResults = document.createElement('a');
+                
+                        let exam_Id = exams[i]['_id'];
+                        examsIds2.push(exam_Id);
+                        td2.innerHTML =  exams[i]['examName'];
+                        td1.innerHTML = exams[i]['subjectName'];
+                        showResults.innerHTML = "show results";
+                        links2.push(showResults);
+                        showResults.onclick = function (){
+                            sessionStorage.setItem('exam_id',examsIds2[i]);
+                            showResults.href='allGrades.html';
+                            console.log(examsIds2[i]);
+                        }
+
+                        td3.appendChild(showResults);
+                        tr.appendChild(td1);
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                        examsTable.appendChild(tr);
+
+                    }   
+
+                    console.log(exams[0]['_id']);
+                    console.log(examsIds2);
+                    console.log(links2);
+               })
+            
+               .catch(function (error) {
+               console.warn("Something went wrong.", error);
+               });
+        })
+
+    </script>
+</body>
+</html>
